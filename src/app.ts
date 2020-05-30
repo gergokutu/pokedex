@@ -11,10 +11,10 @@ interface IPokemon {
 const showPokemon = (pokemon: IPokemon): void => {
   let output: string = `
     <div class="card">
-      <span class="card--id">#${pokemon.id}</span>
-      <img class="card--image" src=${pokemon.image} alt=${pokemon.name} />
-      <h1 class="card--name">${pokemon.name}</h1>
-      <span class="card--details">${pokemon.type}</span>
+      <span class="card-id">#${pokemon.id}</span>
+      <img class="card-image" src=${pokemon.image} alt=${pokemon.name} />
+      <h3 class="card-name">${pokemon.name}</h1>
+      <span class="card-details">${pokemon.type}</span>
     </div>
   `
   container.innerHTML += output;

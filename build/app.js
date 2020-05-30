@@ -39,7 +39,7 @@ var container = document.getElementById("app");
 var POKEMONS = 200;
 ;
 var showPokemon = function (pokemon) {
-    var output = "\n    <div class=\"card\">\n      <span class=\"card--id\">#" + pokemon.id + "</span>\n      <img class=\"card--image\" src=" + pokemon.image + " alt=" + pokemon.name + " />\n      <h1 class=\"card--name\">" + pokemon.name + "</h1>\n      <span class=\"card--details\">" + pokemon.type + "</span>\n    </div>\n  ";
+    var output = "\n    <div class=\"card\">\n      <span class=\"card-id\">#" + pokemon.id + "</span>\n      <img class=\"card-image\" src=" + pokemon.image + " alt=" + pokemon.name + " />\n      <h3 class=\"card-name\">" + pokemon.name + "</h1>\n      <span class=\"card-details\">" + pokemon.type + "</span>\n    </div>\n  ";
     container.innerHTML += output;
 };
 // Promise<void> - do not return a value
