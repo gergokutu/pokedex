@@ -36,18 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var container = document.getElementById("app");
-var pokemons = 100;
-var fetchData = function () {
-    for (var i = 1; i < pokemons; i++) {
-        getPokemon(i);
-    }
+var POKEMONS = 200;
+;
+var showPokemon = function (pokemon) {
+    var output = "\n    <div class=\"card\">\n      <span class=\"card--id\">#" + pokemon.id + "</span>\n      <img class=\"card--image\" src=" + pokemon.image + " alt=" + pokemon.name + " />\n      <h1 class=\"card--name\">" + pokemon.name + "</h1>\n      <span class=\"card--details\">" + pokemon.type + "</span>\n    </div>\n  ";
+    container.innerHTML += output;
 };
 // Promise<void> - do not return a value
-var getPokemon = function (id) { return __awaiter(void 0, void 0, void 0, function () {
-    var data, pokemon, pokemonType;
+var getPokemon = function (pokeID) { return __awaiter(void 0, void 0, void 0, function () {
+    var data, pokemon, pokemonType, id, name, transformedPokemon;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://pokeapi.co/api/v2/pokemon/" + id)];
+            case 0: return [4 /*yield*/, fetch("https://pokeapi.co/api/v2/pokemon/" + pokeID)];
             case 1:
                 data = _a.sent();
                 return [4 /*yield*/, data.json()];
@@ -56,8 +56,22 @@ var getPokemon = function (id) { return __awaiter(void 0, void 0, void 0, functi
                 pokemonType = pokemon.types
                     .map(function (type) { return type.type.name; })
                     .join(", ");
-                console.log(pokemonType);
+                id = pokemon.id, name = pokemon.name;
+                transformedPokemon = {
+                    id: id,
+                    name: name,
+                    image: "" + pokemon.sprites.front_default,
+                    type: pokemonType
+                };
+                console.log(transformedPokemon);
+                showPokemon(transformedPokemon);
                 return [2 /*return*/];
         }
     });
 }); };
+var fetchData = function () {
+    for (var i = 1; i < POKEMONS; i++) {
+        getPokemon(i);
+    }
+};
+fetchData();
