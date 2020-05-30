@@ -36,3 +36,13 @@ console.log(typeof (employeeCode)); //Output: number
 // this syntax works in React too...
 var otherCode = code;
 console.log(typeof (otherCode)); //Output: number
+function myTest(args, args2) {
+    if (args.name) {
+        return "Hello " + args.name;
+    }
+    if (args2.name) {
+        return "Hello " + args2.name;
+    }
+    return "Hello no-name";
+}
+console.log(myTest({ id: 1 }, { id: 2, name: "Pete" }));

@@ -4,7 +4,7 @@ const name: string = "Pocok";
 const age: number = 1;
 // const container: string[] = ["sss", "aaa"];
 const container: Array<string> = ["sss", "aaa"];
-console.log(`${name} has ${age} age(s) of experience in ${container[0]} & ${container[0]}.`)
+console.log(`${name} has ${age} age(s) of experience in ${container[0]} & ${container[0]}.`);
 
 // union
 const mixedArray: (number | string)[] = [1, 2, "three"];
@@ -39,3 +39,28 @@ console.log(typeof(employeeCode)); //Output: number
 // this syntax works in React too...
 let otherCode = code as number;
 console.log(typeof(otherCode)); //Output: number
+
+// Interfaces and Type aliases help us
+// define the shape of an object-like data structures.
+// similar structure, but they are DIFFERENT
+interface ITest {
+  id: number;
+  name?: string;
+}
+
+type TestType = {
+  id: number,
+  name?: string,
+}
+
+function myTest(args: ITest, args2: TestType): string {
+  if (args.name) {
+    return `Hello ${args.name}`
+  }
+  if (args2.name) {
+    return `Hello ${args2.name}`
+  }
+  return "Hello no-name"
+}
+
+console.log(myTest({ id: 1 }, { id: 2, name: "Pete" }));
