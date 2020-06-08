@@ -69,9 +69,11 @@ var getPokemon = function (pokeID) { return __awaiter(void 0, void 0, void 0, fu
         }
     });
 }); };
-var fetchData = function () {
+// Applying generics only for practicing reason...
+var fetchData = function (data) {
     for (var i = 1; i < POKEMONS; i++) {
+        console.log(typeof data);
         getPokemon(i);
     }
 };
-fetchData();
+fetchData("sdfsd");

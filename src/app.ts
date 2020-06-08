@@ -40,11 +40,13 @@ const getPokemon = async (pokeID: number): Promise<void> => {
   showPokemon(transformedPokemon);
 };
 
-const fetchData = (): void => {
+// Applying generics only for practicing reason...
+const fetchData = <T>(data: T): void => {
   for (let i = 1; i < POKEMONS; i++) {
+    console.log(typeof data)
     getPokemon(i);
   }
 };
 
-fetchData();
+fetchData("sdfsd");
 
