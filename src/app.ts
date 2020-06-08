@@ -11,10 +11,10 @@ interface IPokemon {
 const showPokemon = (pokemon: IPokemon): void => {
   let output: string = `
     <div class="card">
-      <span class="card--id">#${pokemon.id}</span>
-      <img class="card--image" src=${pokemon.image} alt=${pokemon.name} />
-      <h1 class="card--name">${pokemon.name}</h1>
-      <span class="card--details">${pokemon.type}</span>
+      <span class="card-id">#${pokemon.id}</span>
+      <img class="card-image" src=${pokemon.image} alt=${pokemon.name} />
+      <h3 class="card-name">${pokemon.name}</h1>
+      <span class="card-details">${pokemon.type}</span>
     </div>
   `
   container.innerHTML += output;
@@ -40,11 +40,13 @@ const getPokemon = async (pokeID: number): Promise<void> => {
   showPokemon(transformedPokemon);
 };
 
-const fetchData = (): void => {
+// Applying generics only for practicing reason...
+const fetchData = <T>(data: T): void => {
   for (let i = 1; i < POKEMONS; i++) {
+    console.log(typeof data)
     getPokemon(i);
   }
 };
 
-fetchData();
+fetchData("sdfsd");
 
